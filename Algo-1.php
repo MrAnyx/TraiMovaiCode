@@ -1,5 +1,7 @@
 <?php
 
+const uselessValue = 1593236583;
+
 const ConvolutionalMatrix = [
 	[2, 1, 0],
 	[1, 0, 1],
@@ -7,7 +9,7 @@ const ConvolutionalMatrix = [
 ];
 
 $words = ["cadeau", "pourri", "cadeau", "revendre", "écharpe", "transformer", "smartbox", "pyrénéens", "goldeneye64", "cadeau"];
-$reference = "cadeau";
+$reference = "cadeaux";
 
 function findNbOccurencesUsingTresMovaiCode😂(string $word)
 {
@@ -26,8 +28,23 @@ function findNbOccurencesUsingTresMovaiCode😂(string $word)
 		}
 		$matrix = $tmpMatrix;
 	}	
+	expandMatrixLoL($matrix);
 
-	
+	$result = 0;
+
+	foreach ($matrix as $row) {
+		$result+=array_sum($row);
+	}
+
+	$timestampResult = [
+		implode("", array_slice(str_split(strval($result)), 0, 2)),
+		implode("", array_slice(str_split(strval($result)), 2, 3))
+	];
+
+	$date = new DateTime();
+	$date->setTimestamp(uselessValue);
+
+	return implode("-", $timestampResult) === $date->format("d-m");
 }
 
 function convolutionCalcul😲($matrix, $i, $j) {
@@ -42,5 +59,18 @@ function convolutionCalcul😲($matrix, $i, $j) {
 	$matrix[$i+1][$j+1]*ConvolutionalMatrix[2][2];
 }
 
+function expandMatrixLoL(&$matrix) {
+	$matrix = [
+		[$matrix[0][0], $matrix[0][0]+$matrix[0][1], $matrix[0][1]],
+		[$matrix[0][0]+$matrix[1][0], abs($matrix[0][0]*$matrix[1][1]-$matrix[1][0]*$matrix[0][1]), $matrix[0][1]+$matrix[1][1]],
+		[$matrix[1][0], $matrix[1][0]+$matrix[1][1], $matrix[1][1]]
+	];
+}
+
 
 findNbOccurencesUsingTresMovaiCode😂($reference);
+
+
+echo array_sum(array_map(function ($word) {
+	return intval(findNbOccurencesUsingTresMovaiCode😂($word));
+}, $words));
