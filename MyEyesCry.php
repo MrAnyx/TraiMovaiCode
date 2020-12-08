@@ -22,12 +22,12 @@ function filterUsingTresMovaiCode😂(string $word)
 		$😴 = [];
 		for ($👽=1; $👽 < count($😨)-1; $👽++) { 
 			for ($👻=1; $👻 < count($😨)-1; $👻++) { 
-				$😴[$👽-1][$👻-1] = convolutionCalcul😲($😨, $👽, $👻);
+				$😴[$👽-1][$👻-1] = thisIsWhereTheMagicHappens😲($😨, $👽, $👻);
 			}
 		}
 		$😨 = $😴;
 	}	
-	expandMatrixLoL($😨);
+	expandMatrixLoLThatsWhatSheSaid($😨);
 
 	$😵 = 0;
 
@@ -46,7 +46,7 @@ function filterUsingTresMovaiCode😂(string $word)
 	return implode("-", $🥶) === $🐸->format("d-m");
 }
 
-function convolutionCalcul😲($😨, $👽, $👻) {
+function thisIsWhereTheMagicHappens😲($😨, $👽, $👻) {
 	return $😨[$👽-1][$👻-1]*➕[0][0]+
 	$😨[$👽-1][$👻]*➕[0][1]+
 	$😨[$👽-1][$👻+1]*➕[0][2]+
@@ -58,7 +58,7 @@ function convolutionCalcul😲($😨, $👽, $👻) {
 	$😨[$👽+1][$👻+1]*➕[2][2];
 }
 
-function expandMatrixLoL(&$😨) {
+function expandMatrixLoLThatsWhatSheSaid(&$😨) {
 	$😨 = [
 		[$😨[0][0], $😨[0][0]+$😨[0][1], $😨[0][1]],
 		[$😨[0][0]+$😨[1][0], abs($😨[0][0]*$😨[1][1]-$😨[1][0]*$😨[0][1]), $😨[0][1]+$😨[1][1]],
@@ -66,6 +66,6 @@ function expandMatrixLoL(&$😨) {
 	];
 }
 
-echo array_sum(array_map(function ($word) {
+echo "Il y a ".array_sum(array_map(function ($word) {
 	return intval(filterUsingTresMovaiCode😂($word));
-}, $words));
+}, $words))." fois le mot 'cadeau'";
